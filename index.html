@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="images/logo-sm.png" type="image/x-icon">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/802776c1c1.js" crossorigin="anonymous"></script>
+  <title>estudiez</title>
+</head>
+<body class="bg-almond">
+
+  <style>
+    
+  </style>
+
+  <div class="container-fluid">
+    <div class="row d-block d-sm-none">
+      <div class="col bg-success">
+        <div class="nav sticky align-items-center justify-content-center text-light"> 
+        <div class="justify-content-start me-auto">
+          <img class="ms-2" src="images/logo-main.png" alt="#" width="150px">
+        </div>
+          <a href="#" class="nav-link my-3 active mx-2" aria-current="page"><i class="fa-solid fa-chart-line text-light fs-4"></i></a>
+          <a href="/" class="nav-link my-3 mx-2"><i class="fa-solid fa-envelope-circle-check text-light fs-4"></i></a>
+          <a href="/" class="nav-link my-3 mx-2"><i class="fa-solid fa-comments text-light fs-4"></i></a>
+          <a href="/" class="nav-link my-3 mx-2"><i class="fa-solid fa-right-from-bracket text-light fs-4"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-auto flex-shrink d-none d-sm-block bg-success">
+        <div class="position-absolute justify-content-start text-center">
+          <a href="/"><img class="mt-2 ms-3" src="images/logo-sm.png" alt="#" style="width: 30px;"></a>
+        </div>
+        <div class="nav sticky d-flex flex-column align-items-center justify-content-center text-light" style="height: 100vh;">
+          <a href="#" class="nav-link my-3 active" aria-current="page"><i class="fa-solid fa-chart-line text-light fs-4" data-toggle="tooltip" data-placement="top" title="Dashboard"></i></a>
+          <a href="/" class="nav-link my-3"><i class="fa-solid fa-envelope-circle-check text-light fs-4" data-toggle="tooltip" data-placement="top" title="Feedback"></i></a>
+          <a href="/" class="nav-link my-3"><i class="fa-solid fa-comments text-light fs-4" data-toggle="tooltip" data-placement="top" title="Contact Us"></i></a>
+          <a href="/" class="nav-link my-3"><i class="fa-solid fa-right-from-bracket text-light fs-4" data-toggle="tooltip" data-placement="top" title="Sign out"></i></a>
+        </div>
+      </div>
+      
+      <div class="dashboard col-auto col-sm-10 col-10 flex-fill m-2">
+        <div class="row text-white mb-2">
+          <div class="col-auto w-25 flex-fill d-flex bg-success rounded-3 p-3 position-relative">
+            <img src="images/prof_photo.jpg" alt="" class="pe-5 pb-3 rounded-circle w-50">
+            <i class="btn btn-success btn-outline-light border-0 fa-solid fa-pen position-absolute" style="right: 5%;"></i>
+            <div class="pt-5">
+              <h3 class="name">Ola Reynolds</h3>
+              <p class="category">Faculty</p>
+              <i class="fw-bold">Grade 3</i>
+            </div>
+          </div>
+          <div class="col p-3 ms-2 bg-success rounded-3 d-none d-lg-block flex-grow">
+            <h1>Welcome to your dashboard, Ola</h1>
+          </div>
+        </div>
+        <div class="row grid gap-2 flex-wrap text-success mb-2">
+          <div class="col-sm-5 col-md-4 col-lg-2 bg-light rounded-3 flex-fill p-3">
+            <button class="btn btn-outline-success mb-3 fw-bold updateScores" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample1" aria-expanded="false" aria-controls="collapseWidthExample1">Update Student Scores</button>
+            <p>Update marks that students have scored in internal tests conducted.</p>
+          </div>
+          <div class="col-sm-5 col-md-4 col-lg-2 bg-light rounded-3 flex-fill p-3">
+            <button class="btn btn-outline-success mb-3 fw-bold updateProgress" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample2" aria-expanded="false" aria-controls="collapseWidthExample2">Academic Progress</button>
+            <p>Update the gradual progress of students in various tests across the year.</p>
+          </div>
+          <div class="col-sm-5 col-md-4 col-lg-2 bg-light rounded-3 flex-fill p-3">
+            <button class="btn btn-outline-success mb-3 fw-bold updateResources" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample3" aria-expanded="false" aria-controls="collapseWidthExample3">Add Study Resources</button><p>Add links to external sites and additional textbooks and schedule revision classes.</p>
+          </div>
+          <div class="col-sm-5 col-md-4 col-lg-2 bg-light rounded-3 flex-fill p-3">
+            <button class="btn btn-outline-success mb-3 fw-bold updateSchedule" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample4" aria-expanded="false" aria-controls="collapseWidthExample4">Schedule Revision Classes</button>
+            <p>Schedule or update dates and times for extra classes for revision purposes.</p>
+          </div>
+        </div>
+        <div class="row grid gap-2 flex-wrap text-success">
+          <div class="col-sm-5 col-md-4 col-lg-2 bg-light rounded-3 flex-fill p-3 collapse collapse-horizontal" id="collapseWidthExample1">
+            <button class="btn btn-outline-success mb-3 fw-bold updateSchedule">Update Student Scores
+            </button>
+            <p>Schedule or update dates and times for extra classes for revision purposes.</p>
+          </div>
+        </div>
+        <div class="row grid gap-2 flex-wrap text-success">
+          <div class="col-sm-5 col-md-4 col-lg-2 bg-light rounded-3 flex-fill p-3 collapse collapse-horizontal" id="collapseWidthExample2">
+            <button class="btn btn-outline-success mb-3 fw-bold updateSchedule">Academic Progress
+            </button>
+            <p>Schedule or update dates and times for extra classes for revision purposes.</p>
+          </div>
+        </div>
+        <div class="row grid gap-2 flex-wrap text-success">
+          <div class="col-sm-5 col-md-4 col-lg-2 bg-light rounded-3 flex-fill p-3 collapse collapse-horizontal" id="collapseWidthExample3">
+            <button class="btn btn-outline-success mb-3 fw-bold updateSchedule">Add Study 
+              Resources
+            </button>
+            <p>Schedule or update dates and times for extra classes for revision purposes.</p>
+          </div>
+        </div>
+        <div class="row grid gap-2 flex-wrap text-success">
+          <div class="col-sm-5 col-md-4 col-lg-2 bg-light rounded-3 flex-fill p-3 collapse collapse-horizontal" id="collapseWidthExample4">
+            <button class="btn btn-outline-success mb-3 fw-bold updateSchedule">
+              Schedule Revision Classes
+            </button>
+            <p>Schedule or update dates and times for extra classes for revision purposes.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- <div class="col-auto students-scores">
+        <div class="list collapse" id="collapse">
+          <a href=""><h3>Joyner Daniels SS2</h3></a>
+        </div>
+        <div class="scores">
+          <table class="table table-success table-striped-columns">
+            <thead>
+              <td>#</td>
+              <td>First Name</td>
+              <td>Last Name</td>
+  
+            </thead>
+          </table>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+
+  
+  <!-- Bootstrap JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+  <!-- Firebase cdn, config and initialisation -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
+  <script>
+      //Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDiOw0sbSMsu9AqnU3LOPTHk-d53BhrsVg",
+        authDomain: "learning-javascript-8586a.firebaseapp.com",
+        projectId: "learning-javascript-8586a",
+        storageBucket: "learning-javascript-8586a.appspot.com",
+        messagingSenderId: "955823472458",
+        appId: "1:955823472458:web:0180a82a8a14377184cbb3",
+        measurementId: "G-29W3CYL3G4"
+      };
+      firebase.initializeApp(config);
+      const db = firebase.firestore();
+      const auth = firebase.auth();
+  </script>
+
+  <!-- Initialise bootstrap tooltips -->
+  <script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+  <script src="js/index.js"></script>
+</body>
+</html>
