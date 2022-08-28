@@ -1,0 +1,85 @@
+
+class Render {
+  constructor(users) {
+    this.users = users
+  }
+
+  profile = ({
+    first_name,
+    last_name,
+    gender,
+    age,
+    email,
+    category,
+    eduClass,
+  }) => {
+    let html
+    let profile = document.querySelector(
+      '.profile'
+    )
+    if (category == 'Faculty') {
+      html = `
+      <div class="profile ms-3 mt-3 text-center text-sm-start">
+        <h3 class="title">
+          <span id="first-name">${first_name}</span>
+          <span id="last-name">${last_name}</span>
+        </h3>
+        <hr />
+        <p>
+          <span id="gmail">${email}</span><br />
+          <span id="gender">${gender}</span> -
+          <span id="category">${category}</span>
+          <br />
+          <span id="class">${eduClass}</span>
+          <br />
+        </p>
+      </div>
+          `
+      // console.log(first_name, last_name, email, gender, category)
+      profile.innerHTML = html
+    } else if (category == 'Student' || category == 'Parent') {
+      html = `
+            <div class="profile ms-3 mt-3 text-center text-sm-start">
+              <h3 class="title">
+                <span id="first-name">${first_name}</span>
+                <span id="last-name">${last_name}</span>
+              </h3>
+              <hr />
+              <p>
+                <span id="gender">${gender}</span> -
+                <span id="age">${age && age}</span> YRS OLD
+                <br>
+                <span id="gmail">${email}</span>
+                <br>
+                <span id="category">${category}</span>
+              </p>
+            </div>
+          `
+      profile.innerHTML = html
+      // console.log(profile)
+    }
+  }
+
+  profImage = photoURL => {
+    const profileImage = document.querySelectorAll("div.profile-image > img")
+    profileImage.forEach(el => el.setAttribute('src', photoURL))
+  }
+}
+
+// users.usersRef.where('email', '==', 'keyturn@live.com').onSnapshot(snapshot => {
+//   snapshot.docChanges().forEach(change => {
+//     const id = change.doc.id
+//     console.log(
+//       change.doc.data().first_name +
+//         ' ' +
+//         change.doc.data().last_name +
+//         ' ' +
+//         change.doc.id
+//     )
+//     const user = db.collection('users').doc(id)
+//     console.log(user, auth.userUser)
+//     renderProfile(user.doc.data())
+//   })
+// })
+
+export default Render
