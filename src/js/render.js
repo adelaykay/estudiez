@@ -38,6 +38,8 @@ class Render {
       // console.log(first_name, last_name, email, gender, category)
       profile.innerHTML = html
     } else if (category == 'Student' || category == 'Parent') {
+
+      //PROFILE
       html = `
             <div class="profile ms-3 mt-3 text-center text-sm-start">
               <h3 class="title">
@@ -57,6 +59,11 @@ class Render {
           `
       profile.innerHTML = html
       // console.log(profile)
+
+      //BUTTONS
+      document.querySelector(".updateScores button").textContent = "Results"
+      document.querySelector(".revClasses button").textContent = "Revision Classes"
+      document.querySelector(".studyResources button").textContent = "Study Resources"
     }
   }
 

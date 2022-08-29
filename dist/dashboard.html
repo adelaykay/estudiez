@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,6 +25,8 @@
       rel="shortcut icon"
       href="./assets/images/logo-sm1-blue.png"
       type="image/x-icon" />
+      <!-- css -->
+      <!-- <link rel="stylesheet" href="../src/styles/ui.css"> -->
 
     <!-- google fonts montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,9 +41,9 @@
     </style>
     <div class="container-fluid">
       <!-- Navbar for mobile devices -->
-      <div class="row dashboard-nav d-block d-sm-none">
-        <div class="col bg-nav">
-          <div class="nav sticky align-items-center justify-content-center">
+      <div class="row d-block d-sm-none bg-nav">
+        <div class="col">
+          <div class="nav align-items-center justify-content-center">
             <div class="justify-content-start me-auto">
               <img
                 class="p-2"
@@ -49,22 +51,22 @@
                 alt="#"
                 width="40px" />
             </div>
-            <a href="#" class="nav-link my-3 active" aria-current="page"
+            <a href="#" class="nav-link  active" aria-current="page"
               ><i
                 class="fa-solid fa-chart-line text-main fs-4"
                 title="Dashboard"></i
             ></a>
-            <a href="feedback.html" class="nav-link my-3"
+            <a href="feedback.html" class="nav-link "
               ><i
                 class="fa-solid fa-envelope-circle-check text-main fs-4"
                 title="Feedback"></i
             ></a>
-            <a href="contact.html" class="nav-link my-3"
+            <a href="contact.html" class="nav-link "
               ><i
                 class="fa-solid fa-comments text-main fs-4"
                 title="Contact Us"></i
             ></a>
-            <a href="" class="nav-link my-3" id="sign-out"
+            <a href="" class="nav-link " id="sign-out"
               ><i
                 class="fa-solid fa-right-from-bracket text-main fs-4"
                 title="Sign out"></i
@@ -72,7 +74,7 @@
           </div>
         </div>
       </div>
-      <div class="row dashboard">
+      <div class="row">
         <!-- General Navbar -->
         <div class="col-auto flex-shrink d-none d-sm-block bg-nav">
           <div class="text-center">
@@ -110,7 +112,7 @@
           </div>
         </div>
         <!-- Main Dashboard -->
-        <div class="dashboard col-auto col-sm-10 col-10 flex-fill p-3 vh-100">
+        <div class="dashboard col-auto col-10 flex-fill p-3">
           <!-- Heads up  -->
           <div class="row text-white px-3">
             <!-- Profile card -->
@@ -352,8 +354,7 @@
           <div class="row grid gap-3 flex-wrap text-main p-3">
 
             <!-- update scores modal trigger -->
-            <div type="button"
-              class="btn text-center col-sm-5 col-md-4 col-lg-2 bg-main rounded-3 flex-fill p-3 shadow-lg grow updateScores"
+            <div class="btn text-center col-sm-5 col-md-4 col-lg-2 bg-main rounded-3 flex-fill p-3 shadow-lg grow updateScores"
               data-bs-target="#updateScores"
               data-bs-toggle="modal"
 
@@ -365,10 +366,7 @@
                 <button
                   class="btn btn-outline-main mb-3 fw-bold"
                   type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseWidthExample1"
-                  aria-expanded="false"
-                  aria-controls="collapseWidthExample1">
+                  >
                   Update Student Scores
                 </button>
                 <p>
@@ -379,14 +377,44 @@
             </div>
             <!-- update score modal -->
             <div class="modal fade" id="updateScores" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg modal-fullscreen-md-down">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="reportCardLabel">Report Card</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    
+                    <table class="table">
+                      <thead class="table-primary">
+                          <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Subject</th>
+                          <th scope="col">Score</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>Mathematics</td>
+                        <td>70</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">2</th>
+                        <td>Physics</td>
+                        <td>60</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">3</th>
+                        <td>Chemistry</td>
+                        <td>80</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Physics</td>
+                            <td>90</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -396,19 +424,16 @@
               </div>
             </div>
             <!-- Academic progress modal trigger -->
-            <div
-              class="text-center col-sm-5 col-md-4 col-lg-2 bg-main rounded-3 flex-fill p-3 shadow-lg grow">
+            <div class="text-center col-sm-5 col-md-4 col-lg-2 bg-main rounded-3 flex-fill p-3 shadow-lg grow acadProgress"
+              data-bs-target="#acadProgress"
+              data-bs-toggle="modal">
               <div>
                 <i class="display-1 fa-solid fa-chart-simple p-2"></i>
               </div>
               <div>
                 <button
-                  class="btn btn-outline-main mb-3 fw-bold acadProgress"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseWidthExample1"
-                  aria-expanded="false"
-                  aria-controls="collapseWidthExample1">
+                  class="btn btn-outline-main mb-3 fw-bold"
+                  type="button">
                   Academic Progress
                 </button>
                 <p>
@@ -417,21 +442,58 @@
                 </p>
               </div>
             </div>
-
-
-            <div
-              class="text-center col-sm-5 col-md-4 col-lg-2 bg-main rounded-3 flex-fill p-3 shadow-lg grow">
+            <!-- Academic progress modal -->
+            <div class="modal fade" id="acadProgress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg modal-fullscreen-md-down">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="reportCardLabel">Academic Progress</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table">
+                      <thead class="table-primary">
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Firt Name</th>
+                          <th scope="col">Last Name</th>
+                          <th scope="col">English (100%)</th>
+                          <th scope="col">Maths (100%)</th>
+                          <th scope="col">Chemistry (100%)</th>
+                          <th scope="col">Physics (100%)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>50</td>
+                          <td>60</td>
+                          <td>55</td>
+                          <td>50</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Study Resources modal trigger -->
+            <div class="text-center col-sm-5 col-md-4 col-lg-2 bg-main rounded-3 flex-fill p-3 shadow-lg grow studyResources"
+            data-bs-target="#studyResources"
+            data-bs-toggle="modal">
               <div>
                 <i class="display-1 fa-solid fa-book p-2"></i>
               </div>
               <div>
                 <button
-                  class="btn btn-outline-main mb-3 fw-bold studyResources"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseWidthExample1"
-                  aria-expanded="false"
-                  aria-controls="collapseWidthExample1">
+                  class="btn btn-outline-main mb-3 fw-bold"
+                  type="button">
                   Add Study Resources
                 </button>
                 <p>
@@ -440,20 +502,110 @@
                 </p>
               </div>
             </div>
-            <div
-              class="text-center col-sm-5 col-md-4 col-lg-2 bg-main rounded-3 flex-fill p-3 shadow-lg grow">
-              <div>
+            <!-- Study Resources modal -->
+            <div class="modal fade" id="studyResources" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg modal-fullscreen-md-down">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="reportCardLabel">Study Resources</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="resources-info" style="display: block;">
+                      <div class="e-book">
+                        <h2 class="">Ebooks</h2>
+                        <table>
+                          <tbody>
+                            <tr>
+                              <td>
+                              English
+                              </td>
+                              <td><a href="https://b-ok.africa/book/3648066/fecfb6">
+                                Edexcel International GCSE (9-1) english language A Student Book A </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                Mathematics
+                              </td>
+                              <td><a href="https://www.free-ebooks.net/mathematics-textbooks/Many-Sorted-Logic">Many-Sorted Logic</a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                Chemistry
+                              </td>
+                              <td><a href="https://www.academia.edu/39339278/General_Chemistry_9th_Ebbing_Gammon">James E. Brady The Molecular Nature of Matter (6th Edition) Copia</a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                Physics
+                              </td>
+                              <td><a href="https://freebookcentre.net/physics-books-download/Classical-Mechanics-by-Julio-Gea-Banacloche.html">Classical Mechanics by Julio Gea Banacloche</a>
+                              </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                      </div>
+                      <div class="videos">
+                        <h2 class="">Videos</h2>
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td>
+                                English
+                                </td>
+                                <td><a href="https://b-ok.africa/book/3648066/fecfb6">
+                                  Edexcel International GCSE (9-1) english language A Student Book A </a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Mathematics
+                                </td>
+                                <td><a href="https://www.youtube.com/c/TheOrganicChemistryTutor">Organic Chemistry tutor</a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Chemistry
+                                </td>
+                                <td><a href="https://www.youtube.com/c/TheOrganicChemistryTutor">Organic Chemistry tutor</a>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Physics
+                                </td>
+                                <td><a href="https://www.youtube.com/c/TheOrganicChemistryTutor">Organic Chemistry tutor</a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Revision Classes Modal Trigger -->
+            <div class="text-center col-sm-5 col-md-4 col-lg-2 bg-main rounded-3 flex-fill p-3 shadow-lg grow revClasses"
+            data-bs-target="#revClasses"
+            data-bs-toggle="modal">
+            <div>
                 <i class="display-1 fa-solid fa-people-group p-2"></i>
               </div>
               <div>
                 <button
-                  class="btn btn-outline-main mb-3 fw-bold updateScores"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseWidthExample1"
-                  aria-expanded="false"
-                  aria-controls="collapseWidthExample1">
-                  Schedule Revision Classes
+                class="btn btn-outline-main mb-3 fw-bold"
+                type="button"
+                >
+                Schedule Revision Classes
                 </button>
                 <p>
                   Schedule or update dates and times for extra classes for
@@ -461,13 +613,97 @@
                 </p>
               </div>
             </div>
-          </div>
-          <!-- Render box -->
-          <div class="row">
-            <div class="col">
-              
+            <!-- Revision Classes Modal -->
+            <div class="modal fade" id="revClasses" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg modal-fullscreen-md-down">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="reportCardLabel">Revision Classes</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <th><i class="fa-solid fa-bell"></i></th>
+                          <th colspan="2" style="text-align: center;"> Notifications</th>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="./assets/images/mathematics.png" style="width: 3rem;" alt="">
+                          </td>
+                          <td>
+                            <h4>Integration</h4>
+                          </td>
+                          <td>
+                            <ul>
+                              <li>Mathematics</li>
+                            <li><img src="./assets/images/calender.png" style="width: 3rem;" alt=""> 25-08-2022</li>
+                            <li>10:00am</li>
+                            <li>3h</li>
+                            <li>extra lesson</li>
+                          </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="./assets/images/chemistry.png" style="width: 3rem;" alt="">
+                          </td>
+                          <td>
+                            <h4>Organic Chemistry</h4>
+                          </td>
+                          <td>
+                            <ul>
+                              <li>Chemistry</li>
+                            <li><img src="./assets/images/calender.png" style="width: 3rem;" alt=""> 25-08-2022</li>
+                            <li>10:00am</li>
+                            <li>1h</li>
+                            <li>extra lesson</li>
+                          </ul>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><img src="./assets/images/update(1).png" style="width: 3rem;" alt=""></td>
+                          <td>
+                            <h4>Results Update</h4>
+                          </td>
+                          <td>Results have been updated. Please check the results panel.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div> 
+
+
+          </div>
+        </div>
+      </div>
+      <div class="row d-block d-sm-none bg-footer">
+        <div class="col">
+          <div class="nav nav-tabs fixed-bottom align-items-center justify-content-around">
+            <a href="#" class="nav-link  active" aria-current="page"
+              ><i
+                class="fa-solid fa-file-circle-check text-main fs-1"
+                title="Dashboard"></i
+            ></a>
+            <a href="feedback.html" class="nav-link "
+              ><i
+                class="fa-solid fa-chart-simple text-main fs-1"
+                title="Feedback"></i
+            ></a>
+            <a href="contact.html" class="nav-link "
+              ><i
+                class="fa-solid fa-book text-main fs-1"
+                title="Contact Us"></i
+            ></a>
+            <a href="" class="nav-link " id="sign-out"
+              ><i
+                class="fa-solid fa-people-group text-main fs-1"
+                title="Sign out"></i
+            ></a>
+          </div>
         </div>
       </div>
     </div>

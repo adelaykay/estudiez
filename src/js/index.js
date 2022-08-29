@@ -190,13 +190,14 @@ onAuthStateChanged(auth, user => {
 })
 
 // get current user profile
-const geteduClass = (user) => {
-  users.getUser(user).then(resp => resp.eduClass)
-}
+// const geteduClass = (user) => {
+//   users.getUser(user).then(resp => resp.eduClass)
+// }
 
 
 // subscription to collection changes for faculty
-const eduClass = users.getUser(auth.currentUser.email).then(resp => resp.eduClass)
+try {
+  const eduClass = users.getUser(auth.currentUser.email).then(resp => resp.eduClass)
 const classRef = query(users.studentsRef, where("eduClass", "==", eduClass))
 onSnapshot(classRef, (snapshot) => {
   snapshot.docChanges().forEach(change => {
@@ -211,6 +212,9 @@ onSnapshot(classRef, (snapshot) => {
     }
   });
 }) 
+} catch (error) {
+  console.log(error.message)
+}
 
 // subscription to collection changes for students
 
@@ -294,7 +298,8 @@ const confirmForm = form => {
 }
 
 // Profile Update function
-const profUpdateForm = document.querySelector('#profUpdateForm')
+try {
+  const profUpdateForm = document.querySelector('#profUpdateForm')
 
 profUpdateForm.addEventListener('submit', e => {
   e.preventDefault()
@@ -332,3 +337,6 @@ profUpdateForm.addEventListener('submit', e => {
     })
     .catch(err => console.log('upload error: ' + err.message))
 })
+} catch (error) {
+  console.log(error.message)
+}
