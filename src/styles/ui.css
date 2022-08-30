@@ -2,20 +2,20 @@
 :root {
 --main-color: rgb(154, 200, 240);
 --main-text-color: rgb(24, 24, 83);
---bg-cream: #fff4d8;
+--bg-cream: #e7e6e3;
 }
 
 .bg-cream {
 background: #e8fcf3;
 }
 .bg-nav {
-    background: linear-gradient(#ffffff, #fff4d8);
+    background: linear-gradient(#ffffff, var(--bg-cream));
 }
 .text-gray {
     color:rgba(128, 128, 128, 0.5) !important;
 }
 .bg-footer{
-    background: linear-gradient(#fff4d8, #ffffff);
+    background: linear-gradient(var(--bg-cream), #ffffff);
 }
 .bg-lb {
 background: #c5cbe3;
@@ -34,11 +34,14 @@ position: absolute;
 /* z-index: -5 !important; */
 }
 .dashboard {
-height: 100vh;
+max-height: 100vh;
 overflow: auto;
 }
 .dashboard::-webkit-scrollbar {
 display: none;
+}
+.welcome {
+    max-height: 40vh;
 }
 .btn-outline-success:hover,
 .btn-main,

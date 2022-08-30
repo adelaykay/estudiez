@@ -1,4 +1,3 @@
-
 class Render {
   constructor(users) {
     this.users = users
@@ -14,9 +13,7 @@ class Render {
     eduClass,
   }) => {
     let html
-    let profile = document.querySelector(
-      '.profile'
-    )
+    let profile = document.querySelector('.profile')
     if (category == 'Faculty') {
       html = `
       <div class="profile ms-3 mt-3 text-center text-sm-start">
@@ -38,7 +35,6 @@ class Render {
       // console.log(first_name, last_name, email, gender, category)
       profile.innerHTML = html
     } else if (category == 'Student' || category == 'Parent') {
-
       //PROFILE
       html = `
             <div class="profile ms-3 mt-3 text-center text-sm-start">
@@ -61,15 +57,27 @@ class Render {
       // console.log(profile)
 
       //BUTTONS
-      document.querySelector(".updateScores button").textContent = "Results"
-      document.querySelector(".revClasses button").textContent = "Revision Classes"
-      document.querySelector(".studyResources button").textContent = "Study Resources"
+      document.querySelector('.updateScores button').textContent = 'Results'
+      document.querySelector('.revClasses button').textContent =
+        'Revision Classes'
+      document.querySelector('.studyResources button').textContent =
+        'Study Resources'
+
+      //THIS DAY IN HISTORY
     }
   }
 
   profImage = photoURL => {
-    const profileImage = document.querySelectorAll("div.profile-image > img")
+    const profileImage = document.querySelectorAll('div.profile-image > img')
     profileImage.forEach(el => el.setAttribute('src', photoURL))
+  }
+
+  thisDayEvent = eventList => {
+    const length = eventList.length
+    let randNum = Math.floor(Math.random() * length)
+    let randomEvent = eventList[randNum].text
+    const thisDay = document.querySelector('#thisDay')
+    thisDay.innerHTML = `Today in History: ${randomEvent}`
   }
 }
 
