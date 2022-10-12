@@ -178,7 +178,7 @@ try {
 // subscription to auth changes (renderer)
 onAuthStateChanged(auth, user => {
   console.log('subscribing to auth changes')
-  if (user && (location.pathname == '/' || location.pathname == 'index.html')) {
+  if (user && (location.pathname.includes('index'))) {
     location.replace('./dashboard.html')
   } else if (user) {
     console.log(user)
@@ -187,9 +187,9 @@ onAuthStateChanged(auth, user => {
       user.photoURL || 'https://via.placeholder.com/150?text=Profile+Image'
     users.getUser(email).then(resp => render.profile(resp))
     render.profImage(photoURL)
-  } else if (location.pathname == '/dashboard.html') {
+  } else if (!(user) && (location.pathname.includes('dashboard', 0))) {
     window.location.replace('./index.html')
-    // console.log(location.href, location.pathname)
+    console.log(location.href, location.pathname)
     console.log('user not found')
   }
 })

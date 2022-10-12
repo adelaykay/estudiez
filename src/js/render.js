@@ -63,15 +63,16 @@ class Render {
       document.querySelector('.studyResources button').textContent =
         'Study Resources'
 
-      //THIS DAY IN HISTORY
+      document.querySelector("#updateScores > div > div > div.modal-footer > button.btn.btn-primary").textContent = 'Print Results';
     }
   }
-
+    
   profImage = photoURL => {
-    const profileImage = document.querySelectorAll('div.profile-image > img')
-    profileImage.forEach(el => el.setAttribute('src', photoURL))
+      const profileImage = document.querySelectorAll('div.profile-image > img')
+      profileImage.forEach(el => el.setAttribute('src', photoURL))
   }
-
+    
+    //THIS DAY IN HISTORY
   thisDayEvent = eventList => {
     const length = eventList.length
     let randNum = Math.floor(Math.random() * length)

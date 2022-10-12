@@ -34,7 +34,7 @@ position: absolute;
 /* z-index: -5 !important; */
 }
 .dashboard {
-max-height: 100vh;
+height: 100vh;
 overflow: auto;
 }
 .dashboard::-webkit-scrollbar {

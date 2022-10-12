@@ -37,12 +37,15 @@
     /> -->
     <!-- end google font monserrat -->
   </head>
-  <body class="h-100">
+  <body class="h-100" style="
+  background: url(./assets/images/landing.jpg) center fixed;
+">
+
+
+    
     <div
-      class="vh-100"
-      style="
-        background: url(./assets/images/landing.jpg) center fixed;
-      ">
+      class="vh-100 p-3"
+      >
       <img src="./assets/images/logo-main-blue.png" width="200px" class="p-1" />`
 
       <div
@@ -56,12 +59,12 @@
         <div class="list-unstyled d-flex">
           <!-- Signup button  -->
           <li class="p-2">
-            <a
+            <button
               class="btn btn-primary"
               data-bs-toggle="modal"
-              href="#signupModalToggle"
+              data-bs-target="#signupModalToggle"
               role="button"
-              >Sign up</a
+              >Sign up</button
             >
           </li>
 
@@ -391,6 +394,7 @@
                 type="submit"
                 class="btn btn-primary"
                 value="Sign in" />
+                <input type="button" class="btn btn-secondary" value="Close" data-bs-dismiss="modal"/>
             </form>
           </div>
         </div>
