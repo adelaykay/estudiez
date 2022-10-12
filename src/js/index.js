@@ -177,8 +177,9 @@ try {
 
 // subscription to auth changes (renderer)
 onAuthStateChanged(auth, user => {
-  console.log('subscribing to auth changes')
+  // console.log('subscribing to auth changes')
   if (user && (location.pathname.includes('index'))) {
+    // console.log(location.pathname)
     location.replace('./dashboard.html')
   } else if (user) {
     console.log(user)
@@ -187,10 +188,10 @@ onAuthStateChanged(auth, user => {
       user.photoURL || 'https://via.placeholder.com/150?text=Profile+Image'
     users.getUser(email).then(resp => render.profile(resp))
     render.profImage(photoURL)
-  } else if (!(user) && (location.pathname.includes('dashboard', 0))) {
+  } else if ( location.pathname.includes('dashboard')) {
+    // console.log('user not found')
+    // console.log(location.href, location.pathname)
     window.location.replace('./index.html')
-    console.log(location.href, location.pathname)
-    console.log('user not found')
   }
 })
 
@@ -351,19 +352,21 @@ let month = today.getMonth() + 1
 let day = today.getDate()
 let url = `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/all/${month}/${day}`
 
-let response = await fetch(url, {
-  headers: {
-    Authorization:
-      'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJhOGRiZTcwNzMwMmM0MGQ0Mzg2OGM5ODQ2YjYzMzVlYSIsImp0aSI6IjMwNTI5ZWQxNzI1NDZiYTM4ZTE3MTA3NzAwMmQ2YjQ5NDY5NjY3ZWJkOTFhNDQwMjg4NWQ3ZGJlNWE3NDY2NDYyNDkzZGU0NjBmYWUwYjgzIiwiaWF0IjoxNjYxODA1MjAxLCJuYmYiOjE2NjE4MDUyMDEsImV4cCI6MzMyMTg3MTQwMDEsInN1YiI6IjcwNTIyMjU4IiwiaXNzIjoiaHR0cHM6XC9cL21ldGEud2lraW1lZGlhLm9yZyIsInJhdGVsaW1pdCI6eyJyZXF1ZXN0c19wZXJfdW5pdCI6NTAwMCwidW5pdCI6IkhPVVIifSwic2NvcGVzIjpbImJhc2ljIl19.wXSylk9qkWAeUrcbZ5DybL3vTV_eNYFH8AI7pNDPHfBKM9j-pjkuCyFptyzLRuetOAjbtkbFKkiKfOrex7zOmgVIH5iNTkxuQ9D7FGV4YU5nKNE6Os6-fm2Rp_5moMBPHvFiKy2_Cj6Bk6vw4S58jV6-TTDuFSfWWXCFNtnrXQbrJx6-ghYtuHAV7PCSVR4TYxRByUUP5ib7PEKQoO-jr9xyiN8iLlFXKgSYw-wDTtj8Y8fpc5IbaP4ffy7_8l74RWjl7AUs-OoXAQeYop97dOsit9v6fzXStFXpDFIBeNV_sZ5F454DhzOuCESWgw3lyzA68sLZ9TV1eZW3snxf9X5ngE1BW5df0uJrXqasZEb0hVpGYwXYHf7MkALfZvBOTbew0lnZq_ikyo7wl4XTav84hnvk6ngxyT6nS889-2hBfvMdGVEWQREROM-MwxRae6SdF0fYFGDQqXl87OtGXJp2YTihjYnNoCJ1MKqc9PX8yFDZGWGfF4SNyoYBqPZG8DyzBjqJBpj_aT8FkbqW8cQdN9Pep3dRiPFpzfqUrqJpI6441AVILhHbGeAK0lVmw4agzh-fVOUQFrqonqCJkZ3jIK1I9csVLBUzzY_Iuz1lPyKT8GfFcgscFffmR9ti0RfRpU_FSWufqEdtVZJNDB8TM3TotLxhZhZWaREe1GI',
-    'Api-User-Agent': 'estudiez (adelekeolasope@gmail.com)',
-  },
-})
-
-response
-  .json()
-  .then(resp => {
-    setInterval(() => {
-      render.thisDayEvent(resp.events)
-    }, 10000)
+if (location.pathname.includes('dashboard')) {
+  let response = await fetch(url, {
+    headers: {
+      Authorization:
+        'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJhOGRiZTcwNzMwMmM0MGQ0Mzg2OGM5ODQ2YjYzMzVlYSIsImp0aSI6IjMwNTI5ZWQxNzI1NDZiYTM4ZTE3MTA3NzAwMmQ2YjQ5NDY5NjY3ZWJkOTFhNDQwMjg4NWQ3ZGJlNWE3NDY2NDYyNDkzZGU0NjBmYWUwYjgzIiwiaWF0IjoxNjYxODA1MjAxLCJuYmYiOjE2NjE4MDUyMDEsImV4cCI6MzMyMTg3MTQwMDEsInN1YiI6IjcwNTIyMjU4IiwiaXNzIjoiaHR0cHM6XC9cL21ldGEud2lraW1lZGlhLm9yZyIsInJhdGVsaW1pdCI6eyJyZXF1ZXN0c19wZXJfdW5pdCI6NTAwMCwidW5pdCI6IkhPVVIifSwic2NvcGVzIjpbImJhc2ljIl19.wXSylk9qkWAeUrcbZ5DybL3vTV_eNYFH8AI7pNDPHfBKM9j-pjkuCyFptyzLRuetOAjbtkbFKkiKfOrex7zOmgVIH5iNTkxuQ9D7FGV4YU5nKNE6Os6-fm2Rp_5moMBPHvFiKy2_Cj6Bk6vw4S58jV6-TTDuFSfWWXCFNtnrXQbrJx6-ghYtuHAV7PCSVR4TYxRByUUP5ib7PEKQoO-jr9xyiN8iLlFXKgSYw-wDTtj8Y8fpc5IbaP4ffy7_8l74RWjl7AUs-OoXAQeYop97dOsit9v6fzXStFXpDFIBeNV_sZ5F454DhzOuCESWgw3lyzA68sLZ9TV1eZW3snxf9X5ngE1BW5df0uJrXqasZEb0hVpGYwXYHf7MkALfZvBOTbew0lnZq_ikyo7wl4XTav84hnvk6ngxyT6nS889-2hBfvMdGVEWQREROM-MwxRae6SdF0fYFGDQqXl87OtGXJp2YTihjYnNoCJ1MKqc9PX8yFDZGWGfF4SNyoYBqPZG8DyzBjqJBpj_aT8FkbqW8cQdN9Pep3dRiPFpzfqUrqJpI6441AVILhHbGeAK0lVmw4agzh-fVOUQFrqonqCJkZ3jIK1I9csVLBUzzY_Iuz1lPyKT8GfFcgscFffmR9ti0RfRpU_FSWufqEdtVZJNDB8TM3TotLxhZhZWaREe1GI',
+      'Api-User-Agent': 'estudiez (adelekeolasope@gmail.com)',
+    },
   })
-  .catch(console.error)
+  
+  response
+    .json()
+    .then(resp => {
+      setInterval(() => {
+        render.thisDayEvent(resp.events)
+      }, 10000)
+    })
+    .catch(e => console.log(e))
+}

@@ -77,8 +77,12 @@ class Render {
     const length = eventList.length
     let randNum = Math.floor(Math.random() * length)
     let randomEvent = eventList[randNum].text
-    const thisDay = document.querySelector('#thisDay')
-    thisDay.innerHTML = `Today in History: ${randomEvent}`
+    try {
+      const thisDay = document.querySelector('#thisDay')
+      thisDay.innerHTML = `Today in History: ${randomEvent}`
+    } catch (error) {
+      console.log(error.message)
+    }
   }
 }
 
